@@ -40,3 +40,4 @@ document.querySelector('#fa-search').onclick=() =>
           updateSlide(currentIndex);
         });
       });
+      

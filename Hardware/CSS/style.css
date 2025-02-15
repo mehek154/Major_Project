@@ -31,14 +31,15 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 9%;
+    padding: 1.5rem 9%;
     background: #fff;
     box-shadow: var(--box-shadow);
 }
 .header .logo h3{
-    font-size: 2.5rem;
+    font-family:zapfino;
+    font-size: 3.5rem;
     font-weight:bolder;
-    color: rgb(23, 1, 119);
+    color: rgb(13, 1, 119);
     display: flex;
 }
 .header .logo div{
@@ -61,7 +62,7 @@ html{
     transition: 0s;
 }
 .header .navbar a:hover{
-    border-bottom: 3px solid rgba(0, 0, 0,0.5);
+    border-bottom: 3px solid  rgb(6, 226, 255);
 }
 .header .icons{
     display: flex;
@@ -79,7 +80,7 @@ html{
     cursor: pointer;
 }
 .header .icons div:hover{
-    background-color: rgb(0, 4, 255);
+    background-color: rgb(6, 226, 255);
     color: #fff;
 }
 .fa-bars{
@@ -124,6 +125,7 @@ html{
     height:100%;
     width:100%;
     overflow: hidden;
+    position: relative;
 }
 .slider-wrapper .container{
     display: flex;
@@ -199,12 +201,24 @@ html{
     left:5%;
     top:8%;
 }
-.navigations button{
+.slider-wrapper .container:nth-child(7){
+    background-image: url('../Images/channel.jpg');
+    background-size: contain;
+    background-position: right;
+}
+#channel2{
+    height:30vh;
+    width:40vw;
     position: absolute;
+    left:5%;
+    top:8%;
+}
+.navigations button{
+    position:absolute;
     top:50%;
     transform: translateY(-50%);
     cursor: pointer;
-    z-index: 20;
+    z-index:10;
     height:40px;
     width:40px;
     border: none;
@@ -246,6 +260,12 @@ html{
     font-size:12mm;
     width:35vw;
 }
+.container2 #category-title{
+    margin-top:5%;
+    text-align: center;
+    font-weight: bolder;
+    font-size:7mm;
+}
 .category-container{
     display: flex;
     justify-content: center;
@@ -269,6 +289,7 @@ html{
     box-shadow:4px 4px 4px 4px rgb(185, 185, 185);
 }
 .Features-container{
+    margin-top:5%;
     display: flex;
     justify-content: center;
     align-items: center;
