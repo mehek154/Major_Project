@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hardware_shop</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+
+      <header class="header">
+        <a href="#" class="logo">
+          <div>
+            <h3>KRISHNA</h3>
+            <p>Hardware & Sanitary Furniture Center</p>
+          </div>
+        </a>
+        <nav class="navbar">
+          <a href="#Home">Home</a>
+          <a href="#Features">Features</a>
+          <a href="#Products">Products</a>
+          <a href="#Categories">Categories</a>
+          <a href="#Reviews">Reviews</a>
+          <a href="#Showroom"
+            ><i class="ri-map-pin-line"></i></i>Showroom</a
+          >
+        </nav>
+        <div class="icons">
+          <div class="fa-bars"><i class="ri-menu-fill"></i></div>
+          <div class="fa-search">
+            <i class="ri-search-line" id="fa-search"></i>
+          </div>
+          <div class="fa-cart"><i class="ri-shopping-cart-line"></i></div>
+          <div class="fa-user"><i class="ri-user-3-line"></i></div>
+        </div>
+        <form class="search-form">
+          <input type="search" id="search" placeholder="Search Here" />
+          <label for="search"><i class="ri-search-line"></i></label>
+        </form>
+      </header>
+      <div class="slider">
+        <div class="slider-wrapper swiper-wrapper">
+          <div class="container swiper-slide">
+            <div class="sub-container">
+              <h1>Buy Top Quality Tools</h1>
+              <h3>
+                At <span style="color: rgb(6, 226, 255)">Affordable </span>Prices!
+              </h3>
+            </div>
+          </div>
+          <div class="container swiper-slide">
+            <img src="Images/cera2.jpg" alt="" id="cera2">
+          </div>
+          <div class="container swiper-slide">
+            <img src="Images/tiles2.jpg" alt="" id="tiles2">
+          </div>
+          <div class="container swiper-slide"></div>
+          <div class="container swiper-slide">
+            <img src="Images/Astral2.jpg" alt="" id="Astral2">
+          </div>
+          <div class="container swiper-slide">
+            <img src="Images/locks2.jpg" alt="" id="locks2">
+          </div>
+        </div>
+        <div class="navigations">
+            <button id="slide-prev" onclick=" changeImage()"><i class="ri-arrow-left-wide-line" style="font-size: 14mm;"></i></button>
+            <button id="slide-next" onclick=" changeImage()"><i class="ri-arrow-right-wide-line" style="font-size:14mm;"></i> </button> 
+        </div>
+      </div>
+      <h1>Shop By Category</h1>
+      <div class="category-container">
+        <div class="category">
+          <img src="Images/hardware.avif" alt="" srcset="">
+          <h1>Hardware</h1>
+        </div>
+        <div class="category">
+          <img src="Images/bathroom.avif" alt="" srcset="">
+          <h1>Bathroom</h1>
+        </div>
+        <div class="category">
+          <img src="Images/flooring.avif" alt="" srcset="">
+          <h1>Flooring</h1>
+        </div>
+        <div class="category">
+          <img src="Images/plywood3.jpg" alt="" srcset="">
+          <h1>Plywoods</h1>
+        </div>
+      </div>
+      <div class="Features-container">
+        <div class="Features">
+          <img src="Images/vehicle.png" alt="" srcset="">
+          <h1>FREE SHIPPING</h1>
+          <h3>Fast & Ontime Delivery For Bangalore customers</h3>
+        </div>
+        <div class="Features">
+          <img src="Images/satisfaction.png" alt="" srcset="">
+          <h1>SATISFACTION</h1>
+          <h3>99% Guaranteed Satisfaction</h3>
+        </div>
+        <div class="Features">
+          <img src="Images/thumb.png" alt="" srcset="">
+          <h1>ORIGNAL PRODUCTS</h1>
+          <h3>100% Authentic & Branded Products</h3>
+        </div>
+        <div class="Features">
+          <img src="Images/deals.png" alt="" srcset="">
+          <h1>DEALS</h1>
+          <h3>Transparent & Competitive Best Pricing</h3>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+  </body>
+</html>
