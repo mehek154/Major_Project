@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Krishna_shop</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/style.css">
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -15,16 +15,16 @@
     />
   </head>
   <body>
-    <div class="main-container">
+    <div id="main-container">
 
       <header class="header">
           <div class="logo">
-            <i><h3>KR <span style="color:rgb(0, 124, 128);font-family: zapfino;">IS</span><span style="color: rgb(0, 128, 79);font-family: zapfino;">HN</span><span style="color: rgb(0, 128, 17);font-family: zapfino;">A</span></h3></i>
+            <i><h3>KR<span style="color:rgb(0, 124, 128);font-family: zapfino;">IS</span><span style="color: rgb(0, 128, 79);font-family: zapfino;">HN</span><span style="color: rgb(0, 128, 17);font-family: zapfino;">A</span></h3></i>
             <p>Hardware Plywood & Sanitary Furniture Center</p>
           </div>
         <nav class="navbar">
-          <a href="#Home">Home</a>
-          <a href="#Features">Features</a>
+          <a href="Index.html">Home</a>
+          <a href="#">Get In Touch</a>
           <a href="#Products">Products</a>
           <a href="#About Us">About Us</a>
           <a href="#Reviews">Reviews</a>
@@ -53,6 +53,9 @@
               <h3>
                 At <span style="color: rgb(6, 226, 255);">Affordable </span>Prices!
               </h3>
+              <a href="#container2">
+                <button id="signUp">Sign Up</button>
+              </a>
             </div>
           </div>
           <div class="container swiper-slide">
@@ -73,24 +76,23 @@
           </div>
         </div>
         <div class="navigations">
-            <button id="slide-prev" onclick=" changeImage()"><i class="ri-arrow-left-wide-line" style="font-size: 14mm;"></i></button>
-            <button id="slide-next" onclick=" changeImage()"><i class="ri-arrow-right-wide-line" style="font-size:14mm;"></i> </button> 
+            <button id="slide-prev" onclick=" changeImage()"><i class="ri-arrow-left-wide-line" style="font-size: 12mm;border-radius:50%;border: 1px solid black; background-color: #eee;"></i></button>
+            <button id="slide-next" onclick=" changeImage()"><i class="ri-arrow-right-wide-line" style="font-size:12mm;border-radius:50%;border: 1px solid black; background-color: #eee;"></i> </button> 
         </div>
       </div>
-      <div class="container2">
-
+      <div id="container2">
         <h1 id="category-title">Shop By Category</h1>
-        <div class="category-container">
+        <div id="category-container">
           <div class="category">
             <a href="Categories/hardware.html">
-              <img src="Images/hardware.avif" alt="" srcset="">
+              <img src="Images/hardware.jpg" alt="" srcset="">
               <h1>Hardware</h1>
             </a>
           </div>
           <div class="category">
-            <a href="Categories/bathroom.html">
+            <a href="Categories/sanitary.html">
               <img src="Images/bathroom.avif" alt="" srcset="">
-              <h1>Bathroom</h1>
+              <h1>Sanitaryware</h1>
             </a>
           </div>
           <div class="category">
@@ -129,7 +131,152 @@
           <h3>Transparent & Competitive Best Pricing</h3>
         </div>
       </div>
+    <div class="visual-container">
+      <h1 style="font-size:9mm;font-weight: 600;margin-bottom:2%;">Exceptionally Designed Products For Your Home</h1>
+      <div class="row">
+        <div class="boxs">
+          <div class="imgbox">
+            <img src="Images/box1.jpg" alt="" id="visual">
+            <div class="content">
+              <h2>Image Hover</h2>
+            </div>
+          </div>
+        </div>
+        <div class="boxs">
+          <div class="imgbox">
+            <img src="Images/box2.png" alt="" id="visual">
+            <div class="content">
+              <h2>Image Hover</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="boxs">
+          <div class="imgbox">
+            <img src="Images/box3.jpg" alt="" id="visual">
+            <div class="content">
+              <h2>Image Hover</h2>
+            </div>
+          </div>
+        </div>
+        <div class="boxs">
+          <div class="imgbox">
+            <img src="Images/box4.jpg" alt="" id="visual">
+            <div class="content">
+              <h2>Image Hover</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="info-container">
+      <div class="info">
+        <h1>Discover Elegance</h1>
+        <p>It’s no surprise that a home is such a precious place for so many people because it is the physical incarnation of the people who live there. With more time spent at home, it’s important to appreciate the space that has been there for you through it all. Celebrate being at home with these wise words that describe the inner peace we all experience when we visit our favorite spot. Our designs or models at Saini World are so spectacular that a visit to our showroom will leave you speechless, and compelled to make a purchase. With amazing designs,KRISHNA is the perfect place for adding elegance and modern appeal to your sweet home.</p>
+        <button id="infoBtn">VIEW LOCATION</button>
+        <button id="infoBtn">VIRTUAL TOUR</button>
+      </div>
+      <div class="info">
+        <img src="Images/info2.avif"id="infoImg" alt="">
+      </div>
+    </div>
+    <div class="reviewsMain">
+      <h1>Reviews</h1>
+      <div id="reviews-container"></div> <!-- Container to display review cards -->
+  
+      <!-- Add Review Button -->
+      <button id="add-review-btn">Add Review</button>
+      
+      <!-- Review Form -->
+      <div id="review-form" style="display: none;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Your Name" />
+        <label for="review-text">Review:</label>
+        <textarea id="review-text" placeholder="Your Review"></textarea>
+        <div id="star-rating">
+          <h3 style="text-align: center;">Rating</h3>
+          <div>
+            <span class="star" data-value="1">&#9733</span>
+            <span class="star" data-value="2">&#9733</span>
+            <span class="star" data-value="3">&#9733</span>
+            <span class="star" data-value="4">&#9733</span>
+            <span class="star" data-value="5">&#9733</span>
+          </div>
+          <p id="output">Rating is:0/5</p>
+        </div>
+        <input type="hidden" id="rating" value="0" />
+        <button id="submit-review-btn">Submit Review</button>
+      </div>
+    </div>
+    </div>
+    <div class="footer-items">
+      <footer>
+        <div class="footer-items">
+          <div class="items">
+            <i><h3 style="color: rgb(13, 1, 119);font-family: zapfino;">KR<span style="color:rgb(0, 124, 128);font-family: zapfino;">IS</span><span style="color: rgb(0, 128, 79);font-family: zapfino;">HN</span><span style="color: rgb(0, 128, 17);font-family: zapfino;">A</span></h3></i>
+            <p id="details">
+              We have clothes that suits your style and which you’re proud
+              to wear. From women to men.
+            </p>
+            <img src="Images/Social.png" alt="" />
+          </div>
+          <div class="items">
+            <h3>COMPANY</h3>
+            <a href="">About</a>
+            <a href="">Features </a>
+            <a href="">Works</a>
+            <a href="">Careers</a>
+          </div>
+          <div class="items">
+            <h3>HELP</h3>
+            <a href="">Customers Support</a>
+            <a href="">Delivery Details</a>
+            <a href="">Terms & Conditions</a>
+            <a href="">Privacy Policy</a>
+          </div>
+          <div class="items">
+            <h3>FAQ</h3>
+            <a href="">Account</a>
+            <a href="">Manage Deliveries</a>
+            <a href="">Orders</a>
+            <a href="">Payments</a>
+          </div>
+          <div class="items">
+            <h3>RESOURCES</h3>
+            <a href="">Free ebooks</a>
+            <a href="">Development Tutorial</a>
+            <a href="">HOw to - Blog</a>
+            <a href="">YouTube Playlist</a>
+          </div>
+        </div>
+        <div class="border"></div>
+        <div class="payments">
+          <div style="color: rgb(146, 142, 142)">
+            KRISHNA 2024-2025, All Rights Reserved
+          </div>
+          <div class="logos">
+            <div class="footerLogo">
+              <img src="Images/Visa.png" alt="" />
+            </div>
+            <div class="logo">
+              <img src="Images/Mastercard.png" alt="" />
+            </div>
+            <div class="logo">
+              <img src="Images/Paypal.png" alt="" />
+            </div>
+            <div class="logo">
+              <img src="Images/ Pay.png" alt="" />
+            </div>
+            <div class="logo">
+              <img src="Images/G Pay.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+ 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="JS/script.js"></script>
   </body>
