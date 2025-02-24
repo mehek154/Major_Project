@@ -2,12 +2,7 @@
 header('Content-Type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 error_log(print_r($data, true)); // Log to server error logs
-$mysqli = new mysqli('localhost', 'root', '', 'krishna_shop');
-
-if ($mysqli->connect_error) {
-    echo json_encode(['success' => false, 'message' => 'Database connection failed']);
-    exit();
-}
+include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);

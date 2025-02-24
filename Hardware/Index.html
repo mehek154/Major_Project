@@ -13,6 +13,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
     <div id="main-container">
@@ -24,10 +27,10 @@
           </div>
         <nav class="navbar">
           <a href="Index.html">Home</a>
-          <a href="#">Get In Touch</a>
+          <a href="Contact.html">Contact Us</a>
           <a href="#Products">Products</a>
-          <a href="#About Us">About Us</a>
-          <a href="#Reviews">Reviews</a>
+          <a href="About.html">About Us</a>
+          <a href="#reviewsMain">Reviews</a>
           <a href="#Showroom"
             ><i class="ri-map-pin-line"></i></i>Showroom</a
           >
@@ -38,8 +41,12 @@
             <i class="ri-search-line" id="fa-search"></i>
           </div>
           <div class="fa-cart"><i class="ri-shopping-cart-line"></i></div>
-          <div class="fa-user"><i class="ri-user-3-line"></i></div>
+          <div class="user-section">
+            <i class="ri-user-line user-icon"></i> <!-- Remix Icon -->
+            <span id="usernameDisplay">Guest</span>
         </div>
+        </div>
+      </div>
         <form class="search-form">
           <input type="search" id="search" placeholder="Search Here" />
           <label for="search"><i class="ri-search-line"></i></label>
@@ -47,31 +54,37 @@
       </header>
       <div class="slider">
         <div class="slider-wrapper swiper-wrapper">
-          <div class="container swiper-slide">
+          <div class="sliderContainer swiper-slide">
             <div class="sub-container">
               <h1>Buy Top Quality Tools</h1>
               <h3>
                 At <span style="color: rgb(6, 226, 255);">Affordable </span>Prices!
               </h3>
-              <a href="#container2">
-                <button id="signUp">Sign Up</button>
-              </a>
+              <div style="display: flex;gap: 4%;">
+                <a href="signup.html">
+                  <button id="signUp">Sign Up</button>
+                </a>
+                <a href="login.html">
+                  <button id="loginBtn">Login</button>
+                </a>
+
+              </div>
             </div>
           </div>
-          <div class="container swiper-slide">
+          <div class="sliderContainer swiper-slide">
             <img src="Images/cera2.jpg" alt="" id="cera2">
           </div>
-          <div class="container swiper-slide">
+          <div class="sliderContainer swiper-slide">
             <img src="Images/tiles2.jpg" alt="" id="tiles2">
           </div>
-          <div class="container swiper-slide"></div>
-          <div class="container swiper-slide">
+          <div class="sliderContainer swiper-slide"></div>
+          <div class="sliderContainer swiper-slide">
             <img src="Images/Astral2.jpg" alt="" id="Astral2">
           </div>
-          <div class="container swiper-slide">
+          <div class="sliderContainer swiper-slide">
             <img src="Images/locks2.jpg" alt="" id="locks2">
           </div>
-          <div class="container swiper-slide">
+          <div class="sliderContainer swiper-slide">
             <img src="Images/channel2.jpg" alt="" id="channel2">
           </div>
         </div>
@@ -131,44 +144,67 @@
           <h3>Transparent & Competitive Best Pricing</h3>
         </div>
       </div>
-    <div class="visual-container">
-      <h1 style="font-size:9mm;font-weight: 600;margin-bottom:2%;">Exceptionally Designed Products For Your Home</h1>
-      <div class="row">
-        <div class="boxs">
-          <div class="imgbox">
-            <img src="Images/box1.jpg" alt="" id="visual">
-            <div class="content">
-              <h2>Image Hover</h2>
+      <div class="visual-container">
+        <h1 style="font-size:10mm;font-weight:600;text-align: center;margin-bottom:2%;">Exceptionally Designed Products For Your Home</h1>
+        <!-- First Row -->
+        <div class="row">
+            <div class="imgbox">
+                <img src="Images/box1.jpg" alt="" id="visual">
+                <h1 class="imgTitle">Sanitaryware</h1>
+                <a href="Categories/sanitary.html" class="imgTitle2">_________Explore</a>
+                <div class="content">
+                    <div class="contentBox">
+                        <h1>CERA</h1>
+                        <h3>Sanitaryware</h3>
+                        <p>Add to the serenity of your bathroom.</p>
+                        <a href="Categories/sanitary.html">_________Explore</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="boxs">
-          <div class="imgbox">
-            <img src="Images/box2.png" alt="" id="visual">
-            <div class="content">
-              <h2>Image Hover</h2>
+            <div class="imgbox">
+                <img src="Images/box2.png" alt="" id="visual">
+                <h1 class="imgTitle">Tiles</h1>
+                <a href="Categories/flooring.html" class="imgTitle2">_________Explore</a>
+                <div class="content">
+                    <div class="contentBox">
+                        <h1>KAJARIA</h1>
+                        <h3>Tiles</h3>
+                        <p>Inspired by nature. A reflection of earthy vibes.</p>
+                        <a href="Categories/flooring.html">_________Explore</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="boxs">
-          <div class="imgbox">
-            <img src="Images/box3.jpg" alt="" id="visual">
-            <div class="content">
-              <h2>Image Hover</h2>
+    
+        <!-- Second Row -->
+        <div class="row">
+            <div class="imgbox">
+                <img src="Images/box3.jpg" alt="" id="visual">
+                <h1 class="imgTitle">Types Of Plywoods</h1>
+                <a href="Categories/plywood.html" class="imgTitle2">_________Explore</a>
+                <div class="content">
+                    <div class="contentBox">
+                        <h1>EURO_PREMIUM</h1>
+                        <h3>Plywoods</h3>
+                        <p>Better Living Unique Design.</p>
+                        <a href="Categories/plywood.html">_________Explore</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="boxs">
-          <div class="imgbox">
-            <img src="Images/box4.jpg" alt="" id="visual">
-            <div class="content">
-              <h2>Image Hover</h2>
+            <div class="imgbox">
+                <img src="Images/box4.jpg" alt="" id="visual">
+                <h1 class="imgTitle">Security Locks</h1>
+                <a href="Categories/hardware.html" class="imgTitle2">_________Explore</a>
+                <div class="content">
+                    <div class="contentBox">
+                        <h1>EUROPA</h1>
+                        <h3>Hardware</h3>
+                        <p>Smart Door Locks For Your Beautiful Homies.</p>
+                        <a href="Categories/hardware.html">_________Explore</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
     <div class="info-container">
       <div class="info">
@@ -181,7 +217,7 @@
         <img src="Images/info2.avif"id="infoImg" alt="">
       </div>
     </div>
-    <div class="reviewsMain">
+    <div id="reviewsMain">
       <h1>Reviews</h1>
       <div id="reviews-container"></div> <!-- Container to display review cards -->
   
@@ -191,9 +227,9 @@
       <!-- Review Form -->
       <div id="review-form" style="display: none;">
         <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Your Name" />
+        <input type="text" id="name" placeholder="  Your Name" />
         <label for="review-text">Review:</label>
-        <textarea id="review-text" placeholder="Your Review"></textarea>
+        <textarea id="review-text" placeholder="  Your Review"></textarea>
         <div id="star-rating">
           <h3 style="text-align: center;">Rating</h3>
           <div>
@@ -210,73 +246,39 @@
       </div>
     </div>
     </div>
-    <div class="footer-items">
+   
+    <div class="footer-dark">
       <footer>
-        <div class="footer-items">
-          <div class="items">
-            <i><h3 style="color: rgb(13, 1, 119);font-family: zapfino;">KR<span style="color:rgb(0, 124, 128);font-family: zapfino;">IS</span><span style="color: rgb(0, 128, 79);font-family: zapfino;">HN</span><span style="color: rgb(0, 128, 17);font-family: zapfino;">A</span></h3></i>
-            <p id="details">
-              We have clothes that suits your style and which you’re proud
-              to wear. From women to men.
-            </p>
-            <img src="Images/Social.png" alt="" />
+          <div class="footerContainer">
+              <div class="row">
+                  <div class="col-sm-6 col-md-3 item">
+                      <h3>Services</h3>
+                      <ul>
+                          <li><a href="#">Web design</a></li>
+                          <li><a href="#">Development</a></li>
+                          <li><a href="#">Hosting</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-sm-6 col-md-3 item">
+                      <h3>Links</h3>
+                      <ul>
+                          <li><a href="#">Company</a></li>
+                          <li><a href="#">Team</a></li>
+                          <li><a href="#">Careers</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-6 item text">
+                      <i><h3>KRISHNA</h3></i>
+                      <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                  </div>
+                  <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+              </div>
+              <p class="copyright">KRISHNA @2025</p>
           </div>
-          <div class="items">
-            <h3>COMPANY</h3>
-            <a href="">About</a>
-            <a href="">Features </a>
-            <a href="">Works</a>
-            <a href="">Careers</a>
-          </div>
-          <div class="items">
-            <h3>HELP</h3>
-            <a href="">Customers Support</a>
-            <a href="">Delivery Details</a>
-            <a href="">Terms & Conditions</a>
-            <a href="">Privacy Policy</a>
-          </div>
-          <div class="items">
-            <h3>FAQ</h3>
-            <a href="">Account</a>
-            <a href="">Manage Deliveries</a>
-            <a href="">Orders</a>
-            <a href="">Payments</a>
-          </div>
-          <div class="items">
-            <h3>RESOURCES</h3>
-            <a href="">Free ebooks</a>
-            <a href="">Development Tutorial</a>
-            <a href="">HOw to - Blog</a>
-            <a href="">YouTube Playlist</a>
-          </div>
-        </div>
-        <div class="border"></div>
-        <div class="payments">
-          <div style="color: rgb(146, 142, 142)">
-            KRISHNA 2024-2025, All Rights Reserved
-          </div>
-          <div class="logos">
-            <div class="footerLogo">
-              <img src="Images/Visa.png" alt="" />
-            </div>
-            <div class="logo">
-              <img src="Images/Mastercard.png" alt="" />
-            </div>
-            <div class="logo">
-              <img src="Images/Paypal.png" alt="" />
-            </div>
-            <div class="logo">
-              <img src="Images/ Pay.png" alt="" />
-            </div>
-            <div class="logo">
-              <img src="Images/G Pay.png" alt="" />
-            </div>
-          </div>
-        </div>
       </footer>
-    </div>
   </div>
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="JS/script.js"></script>
   </body>

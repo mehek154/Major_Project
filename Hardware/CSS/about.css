@@ -1,0 +1,123 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.aboutContainer{
+    height:80vh;
+    width:100vw;
+    background: linear-gradient(to top right,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.5)) ,url('../Images/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.aboutContainer h1{
+    color: white;
+    font-size: 20mm;
+    text-align: center;
+    position: absolute;
+    bottom:25%;
+    left:35%;
+}
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+}
+.infoContainer h1{
+    font-size:10mm;
+    width: 50vw;
+    height: 15vh;
+    text-align: center;
+
+}
+.infoContainer p{
+    font-size:5mm;
+    text-align: center;
+    margin-top: 2%;
+}
+.infoContainer img{
+    height:70vh;
+}
+.container2{
+    display: flex;
+    flex-direction: row;
+    height:63vh;
+    margin-top:5%;
+}
+.container2 .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    width: 50vw;
+    color: white;
+    background-color: rgb(2, 116, 145);
+    padding:2%;
+}
+.container2 .info h1{
+   text-align: center;
+   font-size:9mm;
+}
+.container2 .info p{
+    text-align: center;
+    font-size:5mm;
+ }
+.container2 .img{
+    width: 50vw;
+}
+.container3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+.container3 .icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 2%;
+}
+.container3 .icons #cabin{
+    border:3px solid rgba(204, 0, 0, 0.801);
+    border-radius:50%;
+    padding: 15%;
+    object-fit: contain;
+    height: 26vh;
+}
+.container3  h1{
+    text-align: center;
+    font-size:9mm;
+ }
+ .container3 p{
+     text-align: center;
+     font-size:5mm;
+     width:40vw;
+     margin-top: 2%;
+}
+.brandsContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top:6%;
+}
+.brandsContainer h1{
+    font-size: 10mm;
+    text-align: center;
+}
+.brandsContainer .brands{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:5%;
+    margin-top:1%;
+    padding: 3%;
+    border: 1px solid gray;
+}
+.brandsContainer .brands img{
+    height: 20vh;
+    width:20vw;
+}

@@ -1,0 +1,54 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.contactContainer{
+    height:80vh;
+    width:100vw;
+    background: linear-gradient(to top right,rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.5)) ,url('../Images/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.contactContainer h1{
+    color: white;
+    font-size: 20mm;
+    text-align: center;
+    position: absolute;
+    bottom:25%;
+    left:35%;
+}
+.contactDetails{
+    display: flex;
+    height:80vh;
+    width:100vw;
+}
+.contactDetails .details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50vw;
+    padding: 0% 2% 2% 2%;
+}
+.contactDetails .details div{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+.contactDetails .details div p{
+    width:25vw;
+    font-size: 5mm;
+    margin-left:25%;
+    height: 20vh;
+    margin-top: 2%;
+    padding: 2%;
+    border:1px solid gainsboro;
+}
+.contactDetails .details div a{
+    font-size:6mm;
+    text-align: center;
+}
+.contactDetails .image{
+    border: 1px solid black;
+    width:50vw;
+}

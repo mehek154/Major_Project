@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="CSS/signup.css"> <!-- Link to CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <div class="login-section">
+            <div class="form-container">
+                <h2>Create Your Account</h2>
+                <p>Let's get started with your 30 days free trial</p>
+
+                <!-- Google Sign-In -->
+                <div class="g_id_signin" data-type="standard"></div>
+
+                <p>or</p>
+
+                <!-- Signup Form -->
+                <form action="server.php" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to all Terms, Privacy Policy, and Fees</label>
+                    </div>
+
+                    <button type="submit" name="signup">Sign Up</button>
+                </form>
+
+                <p class="login-link">Already have an account? <a href="login.html">Log in</a></p>
+            </div>
+
+            <!-- Side Info Section -->
+            <div class="info-section">
+                <h3>Discover the Best Furniture for Your Home</h3>
+                <p>We design exceptional buildings, communities, and special places.</p>
+                <div class="icons">
+                    <span>✅ 100% Guarantee</span>
+                    <span>🚚 Free delivery in the London area</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>Thank you for scrolling! 😉</h3>
+            <p>Contact us at <a href="mailto:hellodama@odama.io">hellodama@odama.io</a> or visit <a href="https://odama.io" target="_blank">odama.io</a></p>
+            <p>Follow us:</p>
+            <p>📷 <a href="#">Instagram</a> | 🛒 <a href="#">Gumroad</a> | 🎉 <a href="#">Figma Community</a></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="JS/sign.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+</html>
