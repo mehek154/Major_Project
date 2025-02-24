@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rating = (int)$data['rating'];
 
     $query = "INSERT INTO reviews (customer_name, review_text, rating) VALUES ('$name', '$review', $rating)";
-    if ($mysqli->query($query)) {
+    if ($conn->query($query)) {
         echo json_encode(['success' => true]);
     } else {
         echo json_encode(['success' => false, 'message' => $mysqli->error]);
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $result = $mysqli->query("SELECT * FROM reviews");
+    $result = $conn->query("SELECT * FROM reviews");
     $reviews = [];
     while ($row = $result->fetch_assoc()) {
         $reviews[] = $row;
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $id = $_GET['id'];
     $query = "DELETE FROM reviews WHERE id = $id";
-    if ($mysqli->query($query)) {
+    if ($conn->query($query)) {
         echo json_encode(['success' => true]);
     } else {
         echo json_encode(['success' => false, 'message' => $mysqli->error]);

@@ -160,63 +160,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  
-  form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      let formData = new FormData(form);
-
-      try {
-          let response = await fetch("server.php", {
-              method: "POST",
-              body: formData,
-          });
-
-          let result = await response.json();
-
-          if (result.success) {
-              // Store username in session storage
-              sessionStorage.setItem("username", result.username);
-
-              // Redirect to index.html
-              window.location.href = "index.html";
-          } else {
-              alert(result.error); // Show error message
-          }
-      } catch (error) {
-          console.error("Error:", error);
-          alert("Something went wrong!");
+  fetch("user.php")
+  .then(response => response.json())
+  .then(data => {
+      if (data.username) {
+          document.getElementById("usernameDisplay").textContent = data.username;
+      } else {
+          document.getElementById("usernameDisplay").textContent = "Guest";
       }
-  });
-
-  // Display username in navbar (if logged in)
-  const username = sessionStorage.getItem("username");
-  if (username) {
-      document.getElementById("usernameDisplay").innerText = username;
-  }
+  })
+  .catch(error => console.error("Error fetching username:", error));
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Get username from localStorage
-  const username = localStorage.getItem("username");
-  const usernameDisplay = document.getElementById("usernameDisplay");
-
-  if (username) {
-      usernameDisplay.textContent = username;
-  } else {
-      usernameDisplay.textContent = "Guest";
-  }
-});
-
-// Function to store username after login
-function handleLogin(username) {
-  localStorage.setItem("username", username);
-  document.getElementById("usernameDisplay").textContent = username;
+function toggleAccountForm(event) {
+  event.preventDefault(); // Prevent page refresh
+  var dropdown = document.getElementById("accountDropdown");
+  dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
 }
 
-// Function to logout user
-function handleLogout() {
-  localStorage.removeItem("username");
-  document.getElementById("usernameDisplay").textContent = "Guest";
-}
+// Close dropdown when clicking outside
+window.onclick = function(event) {
+  if (!event.target.closest('.account-container')) {
+      document.getElementById("accountDropdown").style.display = "none";
+  }
+};
+document.getElementById("usernameDisplay").innerText = sessionStorage.getItem("username") || "My Account";
+document.getElementById("accountUsername").innerText = sessionStorage.getItem("username") || "User";

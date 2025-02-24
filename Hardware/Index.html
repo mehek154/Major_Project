@@ -41,9 +41,17 @@
             <i class="ri-search-line" id="fa-search"></i>
           </div>
           <div class="fa-cart"><i class="ri-shopping-cart-line"></i></div>
-          <div class="user-section">
-            <i class="ri-user-line user-icon"></i> <!-- Remix Icon -->
-            <span id="usernameDisplay">Guest</span>
+          <div class="account-container">
+            <!-- My Account Button -->
+            <a href="#" class="account-btn" onclick="toggleAccountForm(event)">
+                <i class="ri-user-3-line"></i>
+            </a>
+        
+            <!-- Hidden Account Dropdown -->
+            <div class="account-dropdown" id="accountDropdown">
+                 <span id="usernameDisplay"></span>
+                <a href="logout.php" class="logout-btn">Logout</a>
+            </div>
         </div>
         </div>
       </div>
@@ -61,10 +69,10 @@
                 At <span style="color: rgb(6, 226, 255);">Affordable </span>Prices!
               </h3>
               <div style="display: flex;gap: 4%;">
-                <a href="signup.html">
+                <a href="register.php">
                   <button id="signUp">Sign Up</button>
                 </a>
-                <a href="login.html">
+                <a href="login.php">
                   <button id="loginBtn">Login</button>
                 </a>
 
