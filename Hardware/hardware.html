@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/hardware.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <title>Hardware Page</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+          <i><h3>KR<span style="color:rgb(0, 124, 128);font-family: zapfino;">IS</span><span style="color: rgb(0, 128, 79);font-family: zapfino;">HN</span><span style="color: rgb(0, 128, 17);font-family: zapfino;">A</span></h3></i>
+          <p>Hardware Plywood & Sanitary Furniture Center</p>
+        </div>
+      <nav class="navbar">
+        <a href="Index.html">Home</a>
+        <a href="Contact.html">Contact Us</a>
+        <a href="#Products">Products</a>
+        <a href="About.html">About Us</a>
+        <a href="#Reviews">Reviews</a>
+        <a href="location.html"
+          ><i class="ri-map-pin-line"></i></i>Showroom</a
+        >
+      </nav>
+      <div class="icons">
+        <div class="fa-bars"><i class="ri-menu-fill"></i></div>
+        <div class="fa-search">
+          <i class="ri-search-line" id="fa-search"></i>
+        </div>
+        <div id="fa-cart">
+            <i class="ri-shopping-cart-line"></i>
+            <span class="cart-item-count"></span>
+        </div>
+        <div class="account-container">
+          <!-- My Account Button -->
+          <a href="#" class="account-btn" onclick="toggleAccountForm(event)">
+            <i class="ri-user-3-line"></i>
+          </a>
+      
+          <!-- Hidden Account Dropdown -->
+          <div class="account-dropdown" id="accountDropdown">
+               <span id="usernameDisplay"></span>
+              <a href="logout.php" class="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <form class="search-form">
+        <input type="search" id="search" placeholder="Search Here" />
+        <label for="search"><i class="ri-search-line"></i></label>
+      </form>
+    </header>
+   <div class="hardwareContainer">
+        <h1>HARDWARE</h1>
+   </div>
+   <div class="container my-5">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Handles</h1>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard1.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Bala Dummy Knob Door Handle Set On Round Rosette Matte Black</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard2.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Oxford Privacy Lever Door Handle Set On Round Rosette Gun Metal Grey</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard3.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Radius Loose Pin Butt Hinge Matte Black 90x60x1.6mm 2 Pack</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard4.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Cavity Slider & Privacy Door Handle Set Square Rosette Matte Black</h5>
+                    <h4 class="price">$58</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-2 hidden" id="product-row-2">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard5.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane 100mm Black Fixed Pin Butt Hinge 2 Pack</h5>
+                    <h4 class="price">$11</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard6.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Bala Entrance Knob Door Handle</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard7.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Westminster Passage Lever Door Handle</h5>
+                    <h4 class="price">$55</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard8.avif" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lane Flush Pull Handle Rectangle 120mm Matte Black</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-2 hidden" id="product-row-3">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard9.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Gold Handles</h5>
+                    <h4 class="price">$35</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard10.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Silver Handles</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard11.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Handles & Knobs</h5>
+                    <h4 class="price">$55</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hard12.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Knobs</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button id="view-more" class="btn btn-primary w-100 mt-3">View More</button>
+</div>
+
+<div class="container my-5"style="border-top: 1px solid gray;">
+  <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Sliding Channels</h1>
+  <div class="row g-2" id="product-row-1">
+      <div class="col-md-3">
+          <div class="card product-card">
+              <img src="products/channel1.jpg" class="card-img-top" alt="Product">
+              <div class="card-body">
+                  <h5 class="card-title">Channel</h5>
+                  <h4 class="price">$16</h4>
+                  <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="card product-card">
+              <img src="products/channel2.jpg" class="card-img-top" alt="Product">
+              <div class="card-body">
+                  <h5 class="card-title">Single Door Channel</h5>
+                  <h4 class="price">$48</h4>
+                  <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card product-card">
+            <img src="products/channel3.webp" class="card-img-top" alt="Product">
+            <div class="card-body">
+                <h5 class="card-title">Double Door Channel</h5>
+                <h4 class="price">$48</h4>
+                <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Doorstopers & Doorclosers</h1>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door1.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Stoper</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door2.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Magnetic Door Stoper</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door3.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Automatic Door Closer</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door4.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Concealed Door Closer</h5>
+                    <h4 class="price">$58</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-2 hidden" id="product2">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door5.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Wall Mounted Door Stoper</h5>
+                    <h4 class="price">$11</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door6.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">KickDown Door Stoper</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door7.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Automatic Door Closer Black</h5>
+                    <h4 class="price">$55</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/door8.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Closers Silver and Gold</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="view-more2" class="btn btn-primary w-100 mt-3">View More</button>
+</div>
+
+<div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Locks</h1>
+    <h4 style="text-align: center;font-size: 5mm;font-weight: 600;">(Normal And Digital Locks)</h4>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock1.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Lock</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock2.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Round Lock</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock3.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Lock</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock4.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Digital Lock</h5>
+                    <h4 class="price">$58</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-2 hidden" id="product-2">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock5.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Gold Locks</h5>
+                    <h4 class="price">$11</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock6.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title"> Silver Lock</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock7.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Digital Lock with Handle</h5>
+                    <h4 class="price">$55</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/lock8.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">TouchScreen Digital Lock</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="view-more3" class="btn btn-primary w-100 mt-3">View More</button>
+</div>
+
+<div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Hinges</h1>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hinges1.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Gold Hinges</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hinges2.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Silver Hinges</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hinges3.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Auto Hinges</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/hinges4.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Concealed Hinges</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Door Eyes</h1>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/eyes1.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Circular Door Eyes</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/eyes2.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Pyramid Door Eyes</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/eyes3.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Square Door Eyes</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/eyes4.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Eyes</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700;margin-top:5%;">Door Sets</h1>
+    <h4 style="text-align: center;font-size: 5mm;font-weight: 600;">(In Different Colors & Design)</h4>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set1.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set In Gold</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set2.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set In Silver</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set3.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set With Design</h5>
+                    <h4 class="price">$14</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set4.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set With Design</h5>
+                    <h4 class="price">$58</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-2 hidden" id="p2">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set5.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set With Minimal Design</h5>
+                    <h4 class="price">$11</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set6.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set With Unique Shape</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/set7.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Door Set In Black</h5>
+                    <h4 class="price">$55</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="view-more4" class="btn btn-primary w-100 mt-3">View More</button>
+</div>
+<div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700; margin-top:5%;">Curtain Brackets & Pipes</h1>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/curtain1.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Curtain Brackets</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/curtain2.jpeg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Curtain Brackets</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/curtain3.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Curtain Brackets</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/curtain4.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Curtain Brackets</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-2 hidden" id="p-2">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/curtain5.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Curtain Pipes</h5>
+                    <h4 class="price">$11</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/curtain6.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Curtain Pipes:Types Of Color</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="view-more5" class="btn btn-primary w-100 mt-3">View More</button>
+  </div>
+  <div class="container my-5" style="border-top: 1px solid gray;">
+    <h1 style="text-align: center;font-size: 10mm;font-weight: 700; margin-top:5%;">Adhesive</h1>
+    <div class="row g-2" id="product-row-1">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive1.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Marine (Fevicol)</h5>
+                    <h4 class="price">$16</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive2.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Fevikwik</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive3.webp" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Falcofix</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive4.png" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Types Of Tapes</h5>
+                    <h4 class="price">$48</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-2 hidden" id="p-6-2">
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive5.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Fevicol Drum</h5>
+                    <h4 class="price">$11</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive6.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">BondTite</h5>
+                    <h4 class="price">$34</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="products/adhevsive7.jpg" class="card-img-top" alt="Product">
+                <div class="card-body">
+                    <h5 class="card-title">Masking Tape</h5>
+                    <h4 class="price">$55</h4>
+                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="view-more6" class="btn btn-primary w-100 mt-3">View More</button>
+  </div>
+
+
+<script>
+    let isExpanded = false; // Track the state of the view
+
+    document.getElementById('view-more').addEventListener('click', function() {
+        // Toggle the visibility of the additional rows
+        const row2 = document.getElementById('product-row-2');
+        const row3 = document.getElementById('product-row-3');
+
+        if (!isExpanded) {
+            row2.classList.remove('hidden');
+            row3.classList.remove('hidden');
+            this.textContent = 'View Less'; // Change button text
+        } else {
+            row2.classList.add('hidden');
+            row3.classList.add('hidden');
+            this.textContent = 'View More'; // Change button text back
+        }
+
+        isExpanded = !isExpanded; // Toggle the state
+    });
+    document.getElementById('view-more2').addEventListener('click', function() {
+        // Toggle the visibility of the additional rows
+        const row2 = document.getElementById('product2');
+        if (!isExpanded) {
+            row2.classList.remove('hidden');
+            this.textContent = 'View Less'; // Change button text
+        } else {
+            row2.classList.add('hidden');
+            this.textContent = 'View More'; // Change button text back
+        }
+
+        isExpanded = !isExpanded; // Toggle the state
+    });
+    document.getElementById('view-more3').addEventListener('click', function() {
+        // Toggle the visibility of the additional rows
+        const row2 = document.getElementById('product-2');
+        if (!isExpanded) {
+            row2.classList.remove('hidden');
+            this.textContent = 'View Less'; // Change button text
+        } else {
+            row2.classList.add('hidden');
+            this.textContent = 'View More'; // Change button text back
+        }
+
+        isExpanded = !isExpanded; // Toggle the state
+    });
+    document.getElementById('view-more4').addEventListener('click', function() {
+        // Toggle the visibility of the additional rows
+        const row2 = document.getElementById('p2');
+        if (!isExpanded) {
+            row2.classList.remove('hidden');
+            this.textContent = 'View Less'; // Change button text
+        } else {
+            row2.classList.add('hidden');
+            this.textContent = 'View More'; // Change button text back
+        }
+
+        isExpanded = !isExpanded; // Toggle the state
+    });
+    document.getElementById('view-more5').addEventListener('click', function() {
+        // Toggle the visibility of the additional rows
+        const row2 = document.getElementById('p-2');
+        if (!isExpanded) {
+            row2.classList.remove('hidden');
+            this.textContent = 'View Less'; // Change button text
+        } else {
+            row2.classList.add('hidden');
+            this.textContent = 'View More'; // Change button text back
+        }
+
+        isExpanded = !isExpanded; // Toggle the state
+    });
+    document.getElementById('view-more6').addEventListener('click', function() {
+        // Toggle the visibility of the additional rows
+        const row2 = document.getElementById('p-6-2');
+        if (!isExpanded) {
+            row2.classList.remove('hidden');
+            this.textContent = 'View Less'; // Change button text
+        } else {
+            row2.classList.add('hidden');
+            this.textContent = 'View More'; // Change button text back
+        }
+
+        isExpanded = !isExpanded; // Toggle the state
+    });
+</script>
+
+   <script src="JS/script.js"></script>  
+</body>
+</html>

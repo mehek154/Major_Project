@@ -27,11 +27,11 @@ html{
     top: 0;
     left: 0;
     right: 0;
-    z-index:20;
+    z-index:100;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 9%;
+    padding: 1.4rem 9%;
     background: #fff;
     box-shadow: var(--box-shadow);
 }
@@ -56,6 +56,7 @@ html{
     height:11vh;
 }
 .header .navbar a{
+    text-decoration: none;
     font-size: 1.7rem;
     margin: 0 1rem;
     color: black;
@@ -140,10 +141,12 @@ html{
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-weight: bold;
     color: black;
-    padding: 10px;
+    padding-left:25%;
     cursor: pointer;
+}
+.account-btn:hover{
+    color: #fff;
 }
 
 /* Dropdown box (hidden by default) */
@@ -153,34 +156,29 @@ html{
     top: 100%;
     right: 0;
     background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height:30vh;
     border-radius: 5px;
     padding: 10px;
     min-width: 180px;
     z-index: 100;
 }
-
-/* Dropdown Links */
-.account-dropdown a {
+#accountDropdown{
+    height:30vh;
+    background-color: #fff;
+}
+#accountDropdown .logout-btn{
     display: block;
-    color: black;
-    padding: 8px;
+    height:8vh;
+    width: 8vw;
+    background-color: rgb(2, 116, 145);
+    color: #fff;
+    margin-left:15%;
+}
+#accountDropdown .usernameDisplay{
+    display: block;
+    font-size: 5mm;
+    color: rgb(13, 1, 119);
     text-decoration: none;
-    border-radius: 3px;
-}
-
-/* Hover effect */
-.account-dropdown a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Logout Button */
-.logout-btn {
-    color: red;
-    font-weight: bold;
-}
-.show {
-    display: block;
 }
 .slider{
     display: flex;

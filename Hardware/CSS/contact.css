@@ -49,6 +49,10 @@
     text-align: center;
 }
 .contactDetails .image{
-    border: 1px solid black;
     width:50vw;
+}
+.contactDetails .image img{
+    width:50vw;
+    height:80vh ;
+    object-fit: contain;
 }

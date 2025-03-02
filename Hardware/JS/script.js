@@ -185,3 +185,4 @@ window.onclick = function(event) {
 };
 document.getElementById("usernameDisplay").innerText = sessionStorage.getItem("username") || "My Account";
 document.getElementById("accountUsername").innerText = sessionStorage.getItem("username") || "User";
+

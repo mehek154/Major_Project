@@ -23,7 +23,7 @@
         <a href="#Products">Products</a>
         <a href="About.html">About Us</a>
         <a href="Index.html?scroll=reviewsMain">Reviews</a>
-        <a href="#Showroom"
+        <a href="location.html"
           ><i class="ri-map-pin-line"></i></i>Showroom</a
         >
       </nav>
@@ -33,7 +33,19 @@
           <i class="ri-search-line" id="fa-search"></i>
         </div>
         <div class="fa-cart"><i class="ri-shopping-cart-line"></i></div>
-        <div class="fa-user"><i class="ri-user-3-line"></i></div>
+        
+        <div class="account-container">
+          <!-- My Account Button -->
+          <a href="#" class="account-btn" onclick="toggleAccountForm(event)">
+            <i class="ri-user-3-line"></i>
+          </a>
+      
+          <!-- Hidden Account Dropdown -->
+          <div class="account-dropdown" id="accountDropdown">
+               <span id="usernameDisplay"></span>
+              <a href="logout.php" class="logout-btn">Logout</a>
+          </div>
+        </div>
       </div>
       <form class="search-form">
         <input type="search" id="search" placeholder="Search Here" />
