@@ -296,10 +296,10 @@ html{
     color: #0068ad;
 }
 .navigations button#slide-prev{
-    left:20px;
+    left:2%;
 }
 .navigations button#slide-next{
-    right:20px;
+    right:5%;
 }
 .navigations button.swiper-button-disaabled{
     display: none;
@@ -448,8 +448,9 @@ html{
     background:none;
     height:8vh;
     width:10vw;
-    font-weight:700;
-    font-size: 4mm;
+    font-weight:600;
+    font-size: 3.5mm;
+    color: rgb(2, 25, 160);
 }
 .info-container .info #infoBtn:hover{
     background-color: rgb(2, 176, 199);
@@ -471,6 +472,8 @@ html{
     border:1px solid rgb(13, 1, 119);
     height: 10vh;
     width:10vw;
+    color: rgb(2, 25, 160);
+    font-size: 5mm;
 }
 #add-review-btn:hover{
     border: none;
@@ -551,7 +554,7 @@ html{
     align-items: center;
     gap: 5%;
 } 
-.visual-container .row{
+.visual-container .visual-row{
     display: flex;
     flex-direction:row;
     gap:1%;

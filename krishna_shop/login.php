@@ -25,7 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['email'] = $email;
             $_SESSION['username']=$username;
-            header("Location:index.html");
+            echo "<script>
+        localStorage.setItem('username', '" . $username . "');
+        window.location.href='index.html';
+        </script>";
             exit();
         } else {
             $message = "Incorrect password";

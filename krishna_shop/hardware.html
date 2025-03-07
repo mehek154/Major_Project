@@ -10,6 +10,9 @@
     rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .hidden {
             display: none;
@@ -39,8 +42,10 @@
           <i class="ri-search-line" id="fa-search"></i>
         </div>
         <div id="fa-cart">
-            <i class="ri-shopping-cart-line"></i>
-            <span class="cart-item-count"></span>
+            <a onclick="showCart()" class="cart-icon">
+                <i class="ri-shopping-cart-line"></i>
+                <span class="cart-item-count"></span>
+            </a>
         </div>
         <div class="account-container">
           <!-- My Account Button -->
@@ -50,7 +55,7 @@
       
           <!-- Hidden Account Dropdown -->
           <div class="account-dropdown" id="accountDropdown">
-               <span id="usernameDisplay"></span>
+               <span id="usernameDisplay" class="username"></span>
               <a href="logout.php" class="logout-btn">Logout</a>
           </div>
         </div>
@@ -60,6 +65,15 @@
         <label for="search"><i class="ri-search-line"></i></label>
       </form>
     </header>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <h3>Total Price: $<span id="totalPrice">0</span></h3>
+            <button onclick="orderNow()" class="orderNow">Order Now</button>
+        </div>
+    </div>
    <div class="hardwareContainer">
         <h1>HARDWARE</h1>
    </div>
@@ -72,7 +86,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Bala Dummy Knob Door Handle Set On Round Rosette Matte Black</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2" onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -82,7 +96,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Oxford Privacy Lever Door Handle Set On Round Rosette Gun Metal Grey</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"  onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -92,7 +106,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Radius Loose Pin Butt Hinge Matte Black 90x60x1.6mm 2 Pack</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"  onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -102,7 +116,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Cavity Slider & Privacy Door Handle Set Square Rosette Matte Black</h5>
                     <h4 class="price">$58</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -115,7 +129,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane 100mm Black Fixed Pin Butt Hinge 2 Pack</h5>
                     <h4 class="price">$11</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -125,7 +139,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Bala Entrance Knob Door Handle</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -135,7 +149,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Westminster Passage Lever Door Handle</h5>
                     <h4 class="price">$55</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -145,7 +159,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lane Flush Pull Handle Rectangle 120mm Matte Black</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -158,7 +172,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Gold Handles</h5>
                     <h4 class="price">$35</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -168,7 +182,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Silver Handles</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -178,7 +192,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Handles & Knobs</h5>
                     <h4 class="price">$55</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -188,7 +202,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Knobs</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -206,7 +220,7 @@
               <div class="card-body">
                   <h5 class="card-title">Channel</h5>
                   <h4 class="price">$16</h4>
-                  <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                  <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
               </div>
           </div>
       </div>
@@ -216,7 +230,7 @@
               <div class="card-body">
                   <h5 class="card-title">Single Door Channel</h5>
                   <h4 class="price">$48</h4>
-                  <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                  <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
               </div>
           </div>
       </div>
@@ -226,7 +240,7 @@
             <div class="card-body">
                 <h5 class="card-title">Double Door Channel</h5>
                 <h4 class="price">$48</h4>
-                <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
             </div>
         </div>
     </div>
@@ -241,7 +255,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Stoper</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -251,7 +265,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Magnetic Door Stoper</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -261,7 +275,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Automatic Door Closer</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -271,7 +285,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Concealed Door Closer</h5>
                     <h4 class="price">$58</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -284,7 +298,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Wall Mounted Door Stoper</h5>
                     <h4 class="price">$11</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -294,7 +308,7 @@
                 <div class="card-body">
                     <h5 class="card-title">KickDown Door Stoper</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -304,7 +318,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Automatic Door Closer Black</h5>
                     <h4 class="price">$55</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -314,7 +328,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Closers Silver and Gold</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -332,7 +346,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Lock</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -342,7 +356,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Round Lock</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -352,7 +366,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Lock</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -362,7 +376,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Digital Lock</h5>
                     <h4 class="price">$58</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -375,7 +389,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Gold Locks</h5>
                     <h4 class="price">$11</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -385,7 +399,7 @@
                 <div class="card-body">
                     <h5 class="card-title"> Silver Lock</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -395,7 +409,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Digital Lock with Handle</h5>
                     <h4 class="price">$55</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -405,7 +419,7 @@
                 <div class="card-body">
                     <h5 class="card-title">TouchScreen Digital Lock</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -422,7 +436,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Gold Hinges</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -432,7 +446,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Silver Hinges</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -442,7 +456,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Auto Hinges</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -452,7 +466,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Concealed Hinges</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -468,7 +482,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Circular Door Eyes</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -478,7 +492,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Pyramid Door Eyes</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -488,7 +502,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Square Door Eyes</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -498,7 +512,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Eyes</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -515,7 +529,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set In Gold</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -525,7 +539,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set In Silver</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -535,7 +549,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set With Design</h5>
                     <h4 class="price">$14</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -545,7 +559,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set With Design</h5>
                     <h4 class="price">$58</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -558,7 +572,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set With Minimal Design</h5>
                     <h4 class="price">$11</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -568,7 +582,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set With Unique Shape</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -578,7 +592,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Door Set In Black</h5>
                     <h4 class="price">$55</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -594,7 +608,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Curtain Brackets</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -604,7 +618,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Curtain Brackets</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -614,7 +628,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Curtain Brackets</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -624,7 +638,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Curtain Brackets</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -636,7 +650,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Curtain Pipes</h5>
                     <h4 class="price">$11</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -646,7 +660,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Curtain Pipes:Types Of Color</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -662,7 +676,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Marine (Fevicol)</h5>
                     <h4 class="price">$16</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -672,7 +686,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Fevikwik</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -682,7 +696,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Falcofix</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -692,7 +706,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Types Of Tapes</h5>
                     <h4 class="price">$48</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -704,7 +718,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Fevicol Drum</h5>
                     <h4 class="price">$11</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -714,7 +728,7 @@
                 <div class="card-body">
                     <h5 class="card-title">BondTite</h5>
                     <h4 class="price">$34</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -724,7 +738,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Masking Tape</h5>
                     <h4 class="price">$55</h4>
-                    <button class="btn btn-dark w-100 mt-2">ADD TO CART</button>
+                    <button class="btn btn-dark w-100 mt-2"onclick="addToCart(this)">ADD TO CART</button>
                 </div>
             </div>
         </div>
@@ -821,5 +835,9 @@
 </script>
 
    <script src="JS/script.js"></script>  
+   <script src="JS/cart.js"></script>
+<script>
+  document.querySelector(".cart-icon").addEventListener("click", showCart);
+</script>
 </body>
 </html>
