@@ -4,7 +4,11 @@ include 'db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $total = $_POST['totalPrice'];
-    $cartData = json_decode($_POST['cartData'], true);
+    $paymentMethod = $_POST['paymentMethod']; // ✅ Get Payment Method
+    $cartData = json_decode($_POST['cartItems'], true);
+
+    // ✅ Set Payment Status
+    $paymentStatus = ($paymentMethod === "online") ? "Paid" : "Pending";
 
     if (!empty($cartData)) {
         foreach ($cartData as $item) {
@@ -12,8 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $price = $item['price'];
             $quantity = $item['quantity'];
 
-            $query = "INSERT INTO orders (user_id, product_name, price, quantity, total_price) 
-                      VALUES ('$username', '$name', '$price', '$quantity', '$total')";
+            // ✅ Insert Order into Database
+            $query = "INSERT INTO orders (user_id, product_name, price, quantity, total_price, payment_method, payment_status)
+                      VALUES ('$username', '$name', '$price', '$quantity', '$total', '$paymentMethod', '$paymentStatus')";
+
             mysqli_query($conn, $query);
         }
         echo "success";

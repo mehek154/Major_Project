@@ -112,13 +112,18 @@ function orderNow() {
 
     let cartItems = JSON.stringify(cart);
     let totalPrice = document.querySelector("#totalPrice").innerText;
+    let paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
+    if (paymentMethod === "online") {
+        window.location.href = `payment_gateway.php?amount=${totalPrice}&username=${username}`;
+        return;
+    }
     fetch("order.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `cartItems=${cartItems}&totalPrice=${totalPrice}&username=${username}`
+        body: `cartItems=${encodeURIComponent(cartItems)}&totalPrice=${totalPrice}&username=${username}&paymentMethod=${paymentMethod}`
     })
         .then(response => response.text())
         .then(data => {
@@ -140,5 +145,49 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedCart) {
         cart = JSON.parse(savedCart);
         updateCart();
+
     }
 });
+function showOrders() {
+    fetch("getorders.php?username=" + username)
+      .then(response => response.json())
+      .then(data => {
+        let orderHTML = "<h3>Your Orders 📦</h3>";
+        if (data.length > 0) {
+          data.forEach(order => {
+            orderHTML += `
+              <p>${order.product_name} - ₹${order.price} x ${order.quantity}</p>
+            `;
+          });
+        } else {
+          orderHTML += `<p>No Orders Found 😢</p>`;
+        }
+        Swal.fire({
+          title: "Your Orders",
+          html: orderHTML,
+          icon: "info",
+        });
+      });
+  }
+  function selectPayment() {
+    let selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
+    let paymentOptions = document.getElementById("paymentOptions");
+    let errorMessage = document.getElementById("errorMessage");
+    let paymentMessage = document.getElementById("paymentMessage");
+
+    if (selectedMethod) {
+        let selectedLabel = selectedMethod.closest(".payment-option"); // Get the label element containing the input and text
+
+        // Clear all payment options
+        paymentOptions.innerHTML = "";
+
+        // Append only the selected payment method
+        paymentOptions.appendChild(selectedLabel);
+
+        // Update the message
+        paymentMessage.innerHTML = `You selected: <strong>${selectedLabel.textContent.trim()}</strong>`;
+        errorMessage.style.display = "none"; // Hide error message
+    } else {
+        errorMessage.style.display = "block"; // Show error message if no selection
+    }
+}

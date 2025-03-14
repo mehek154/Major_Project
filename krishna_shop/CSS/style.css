@@ -689,6 +689,8 @@ html{
   .footer-dark .item.text p {
     opacity:0.6;
     margin-bottom:0;
+    font-size:14px;
+    margin-left:5%;
   }
   
   .footer-dark .item.social {

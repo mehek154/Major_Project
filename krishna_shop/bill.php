@@ -1,57 +1,127 @@
 <?php
-session_start();
 include 'db.php';
-require('tcpdf/tcpdf.php');
-
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
 }
+$username = $_SESSION['username'];
 
-$user = $_SESSION['user'];
-$sql = "SELECT * FROM orders WHERE user_id='$user'";
-$result = mysqli_query($conn, $sql);
+$query = "SELECT * FROM orders WHERE user_id='$username'";
+$result = mysqli_query($conn, $query);
 
-// Create PDF
-$pdf = new TCPDF();
-$pdf->SetCreator(PDF_CREATOR);
-$pdf->Image( <i><h3>KR<span style="color:rgb(0, 124, 128);font-family: zapfino;">IS</span><span style="color: rgb(0, 128, 79);font-family: zapfino;">HN</span><span style="color: rgb(0, 128, 17);font-family: zapfino;">A</span></h3></i>
-<p>Hardware Plywood & Sanitary Furniture Center</p>
-</div>);
-$pdf->SetAuthor('Hardware Shop');
-$pdf->SetTitle('Order Bill');
-$pdf->SetHeaderData('', 0, 'Krishna Plywood And Sanitary 🛠️', 'Order Bill');
-$pdf->SetMargins(10, 10, 10);
-$pdf->AddPage();
-
-$html = '<h1 style="text-align:center;">Krishna Plywood And Sanitary 🛠️</h1>';
-$html .= '<h2>Customer: ' . $user . '</h2>';
-$html .= '<table border="1" cellpadding="5">
-<tr>
-<th>Product Name</th>
-<th>Price</th>
-<th>Order Date</th>
-</tr>';
-
+// Calculate Total Price
 $total = 0;
-
-while ($row = mysqli_fetch_assoc($result)) {
-    $html .= '
-    <tr>
-    <td>' . $row['product_name'] . '</td>
-    <td>$' . $row['price'] . '</td>
-    <td>' . $row['order_date'] . '</td>
-    </tr>';
-    $total += $row['price'];
-}
-
-$html .= '
-<tr>
-<td colspan="2"><b>Total Amount</b></td>
-<td><b>$' . $total . '</b></td>
-</tr>
-</table>';
-
-$pdf->writeHTML($html, true, false, true, false, '');
-$pdf->Output('Order_Bill.pdf', 'D');
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Orders</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    table {
+      width: 90%;
+      margin: auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+    }
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top:5%;
+      text-decoration: none;
+      color: white;
+      background:rgb(0, 124, 128);
+      padding: 10px;
+      width: 200px;
+      margin: auto;
+      border-radius: 5px;
+    }
+    .cancel-btn {
+      color:red;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+    .invoice-btn {
+      background: blue;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    table tr:last-child {
+      background:rgb(0, 124, 128);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>Your Orders 📦</h1>
+<table>
+<tr>
+  <th>Product Name</th>
+  <th>Price (₹)</th>
+  <th>Quantity</th>
+  <th>Total Price (₹)</th>
+  <th>Date</th>
+  <th>Payment Method</th>
+  <th>Payment Status</th>
+  <th>Action</th>
+</tr>
+
+<?php while ($row = mysqli_fetch_assoc($result)) { 
+    $productTotal = $row['price'] * $row['quantity'];
+    $total += $productTotal;
+?>
+<tr>
+  <td><?php echo htmlspecialchars($row['product_name']); ?></td>
+  <td>₹<?php echo number_format($row['price'], 2); ?></td>
+  <td><?php echo $row['quantity']; ?></td>
+  <td>₹<?php echo number_format($productTotal, 2); ?></td>
+  <td><?php echo $row['order_date']; ?></td>
+  <td><?php echo $row['payment_method']; ?></td>
+  <td><?php echo $row['payment_status']; ?></td>
+  <td>
+    <a href="cancel_order.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are You Sure You Want to Cancel Order?')" class="cancel-btn">Cancel ❌</a>
+  </td>
+</tr>
+<?php } ?>
+
+<!-- Total Row -->
+<tr>
+  <td colspan="3" style="text-align: right;">Grand Total:</td>
+  <td>₹<?php echo number_format($total, 2); ?></td>
+  <td colspan="4">
+    <a href="invoice.php?order_id=98765" target="_blank">
+      <button class="invoice-btn">📄 Download Invoice</button>
+    </a>
+  </td>
+</tr>
+</table>
+
+<a href="index.html" class="back-btn">⬅️ Back to Home</a>
+</body>
+</html>

@@ -9,6 +9,12 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Contact_us Page</title>
 </head>
 <body>
@@ -32,7 +38,12 @@
         <div class="fa-search">
           <i class="ri-search-line" id="fa-search"></i>
         </div>
-        <div class="fa-cart"><i class="ri-shopping-cart-line"></i></div>
+        <div id="fa-cart">
+          <a onclick="showCart()" class="cart-icon">
+              <i class="ri-shopping-cart-line"></i>
+              <span class="cart-item-count"></span>
+          </a>
+      </div>
         <div class="account-container">
           <!-- My Account Button -->
           <a href="#" class="account-btn" onclick="toggleAccountForm(event)">
@@ -41,9 +52,12 @@
       
           <!-- Hidden Account Dropdown -->
           <div class="account-dropdown" id="accountDropdown">
-               <span id="usernameDisplay"></span>
-              <a href="logout.php" class="logout-btn">Logout</a>
-          </div>
+            <span id="usernameDisplay" class="username"></span>
+            
+            <a href="bill.php" class="your-order-btn">Your_Orders</a>
+            
+            <a href="logout.php" class="logout-btn">Logout</a>
+         </div>
         </div>
       </div>
       <form class="search-form">
@@ -51,6 +65,15 @@
         <label for="search"><i class="ri-search-line"></i></label>
       </form>
     </header>
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+          <span class="close" onclick="closeCart()">&times;</span>
+          <h2>Your Cart</h2>
+          <div id="cartItems"></div>
+          <h3>Total Price: $<span id="totalPrice">0</span></h3>
+          <button onclick="orderNow()">Order Now</button>
+      </div>
+  </div>
    <div class="contactContainer">
         <h1>CONTACT US</h1>
    </div>
@@ -73,7 +96,57 @@
     <div class="image">
       <img src="Images/contact.jpg" alt="" srcset="">
     </div>
-   </div>
+  </div>
+  <br><br>
+   <div class="footer-dark">
+    <footer>
+        <div class="footerContainer">
+            <div class="row">
+                <div class="col-sm-6 col-md-2 item">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="Index.html">Home</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="location.html">Showroom Location</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-2 item">
+                    <h3>SHOP</h3>
+                    <ul>
+                        <li><a href="hardware.html">Hardware</a></li>
+                        <li><a href="sanitary.html">Sanitary Ware</a></li>
+                        <li><a href="flooring.html">Tiles</a></li>
+                        <li><a href="plywood.html">Plywood</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-2 item">
+                  <h3>OTHER LINKS</h3>
+                  <ul>
+                      <li><a href="Index.html">FAQ's</a></li>
+                      <li><a href="Contact.html">Terms And Conditions</a></li>
+                      <li><a href="About.html">Privacy Policy</a></li>
+                      <li><a href="location.html">Return Policy</a></li>
+                      <li><a href="location.html">Shipping Policy</a></li>
+                  </ul>
+              </div>
+                <div class="col-md-6 item text">
+                    <i><h3>KRISHNA</h3></i>
+                    <span><i class="ri-phone-line" style="font-size:5mm;"></i></span><p>9970109899 <br> 9975487787</p>
+                    <span><i class="ri-map-pin-line"style="font-size:5mm;"></i></span><p>Plot No A 17, Pune Bangalore Highway, Satara MIDC, Satara - 415004 (Old MIDC)</p>
+                    
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright">Copyright © 2025 KRISHNA</p>
+        </div>
+    </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
    <script src="JS/script.js"></script>
+   <script src="JS/cart.js"></script>
+   <script src="JS/sign.js"></script>
 </body>
 </html>

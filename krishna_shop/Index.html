@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div id="main-container">
@@ -52,9 +53,12 @@
         
             <!-- Hidden Account Dropdown -->
             <div class="account-dropdown" id="accountDropdown">
-                 <span id="usernameDisplay" class="username"></span>
-                <a href="logout.php" class="logout-btn">Logout</a>
-            </div>
+              <span id="usernameDisplay" class="username"></span>
+              
+              <a href="bill.php" class="your-order-btn">Your_Orders</a>
+              
+              <a href="logout.php" class="logout-btn">Logout</a>
+           </div>
           </div>
         </div>
       </div>
@@ -271,29 +275,43 @@
       <footer>
           <div class="footerContainer">
               <div class="row">
-                  <div class="col-sm-6 col-md-3 item">
-                      <h3>Services</h3>
+                  <div class="col-sm-6 col-md-2 item">
+                      <h3>QUICK LINKS</h3>
                       <ul>
-                          <li><a href="#">Web design</a></li>
-                          <li><a href="#">Development</a></li>
-                          <li><a href="#">Hosting</a></li>
+                          <li><a href="Index.html">Home</a></li>
+                          <li><a href="Contact.html">Contact Us</a></li>
+                          <li><a href="About.html">About Us</a></li>
+                          <li><a href="location.html">Showroom Location</a></li>
                       </ul>
                   </div>
-                  <div class="col-sm-6 col-md-3 item">
-                      <h3>Links</h3>
+                  <div class="col-sm-6 col-md-2 item">
+                      <h3>SHOP</h3>
                       <ul>
-                          <li><a href="#">Company</a></li>
-                          <li><a href="#">Team</a></li>
-                          <li><a href="#">Careers</a></li>
+                          <li><a href="hardware.html">Hardware</a></li>
+                          <li><a href="sanitary.html">Sanitary Ware</a></li>
+                          <li><a href="flooring.html">Tiles</a></li>
+                          <li><a href="plywood.html">Plywood</a></li>
                       </ul>
                   </div>
+                  <div class="col-sm-6 col-md-2 item">
+                    <h3>OTHER LINKS</h3>
+                    <ul>
+                        <li><a href="Index.html">FAQ's</a></li>
+                        <li><a href="Contact.html">Terms And Conditions</a></li>
+                        <li><a href="About.html">Privacy Policy</a></li>
+                        <li><a href="location.html">Return Policy</a></li>
+                        <li><a href="location.html">Shipping Policy</a></li>
+                    </ul>
+                </div>
                   <div class="col-md-6 item text">
                       <i><h3>KRISHNA</h3></i>
-                      <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                      <span><i class="ri-phone-line" style="font-size:5mm;"></i></span><p>9970109899 <br> 9975487787</p>
+                      <span><i class="ri-map-pin-line"style="font-size:5mm;"></i></span><p>Plot No A 17, Pune Bangalore Highway, Satara MIDC, Satara - 415004 (Old MIDC)</p>
+                      
                   </div>
                   <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
               </div>
-              <p class="copyright">KRISHNA @2025</p>
+              <p class="copyright">Copyright © 2025 KRISHNA</p>
           </div>
       </footer>
   </div>
