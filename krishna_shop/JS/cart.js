@@ -1,10 +1,19 @@
 let cart = [];
 
-// ✅ Add to Cart Function
+// ✅ Open and Close Modals
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+// ✅ Add to Cart
 function addToCart(button) {
     const card = button.closest('.card');
     const productName = card.querySelector('.card-title').innerText;
-    const productPrice = parseFloat(card.querySelector('.price').innerText.replace('$', ''));
+    const productPrice = parseFloat(card.querySelector('.price').innerText.replace('₹', ''));
     const productImage = card.querySelector('.card-img-top').src;
 
     const existingProduct = cart.find(item => item.name === productName);
@@ -12,28 +21,21 @@ function addToCart(button) {
     if (existingProduct) {
         existingProduct.quantity += 1;
     } else {
-        const product = {
-            name: productName,
-            price: productPrice,
-            image: productImage,
-            quantity: 1
-        };
-        cart.push(product);
+        cart.push({ name: productName, price: productPrice, image: productImage, quantity: 1 });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCart();
 }
 
-// ✅ Update Cart Function
+// ✅ Update Cart
 function updateCart() {
     const cartItems = document.getElementById('cartItems');
     const totalPrice = document.getElementById('totalPrice');
     const cartItemCount = document.querySelector('.cart-item-count');
 
     cartItems.innerHTML = '';
-    let total = 0;
-    let itemCount = 0;
+    let total = 0, itemCount = 0;
 
     cart.forEach((item, index) => {
         total += item.price * item.quantity;
@@ -43,7 +45,7 @@ function updateCart() {
             <div class="cart-item">
                 <img src="${item.image}" width="50">
                 <span>${item.name}</span>
-                <span>$${item.price}</span>
+                <span>₹${item.price}</span>
                 <div class="btn-cart">
                     <div class="quantity">
                         <button onclick="decrement(${index})">➖</button>
@@ -57,7 +59,7 @@ function updateCart() {
     });
 
     cartItemCount.textContent = itemCount;
-    totalPrice.textContent = total.toFixed(2);
+    totalPrice.textContent = `₹${total.toFixed(2)}`;
 }
 
 // ✅ Increment Quantity
@@ -85,17 +87,7 @@ function removeFromCart(index) {
     updateCart();
 }
 
-// ✅ Show Cart Modal
-function showCart() {
-    document.getElementById('cartModal').style.display = 'block';
-}
-
-// ✅ Close Cart Modal
-function closeCart() {
-    document.getElementById('cartModal').style.display = 'none';
-}
-
-// ✅ Order Now
+// ✅ Order Now → Open Payment Modal
 function orderNow() {
     let username = localStorage.getItem("username");
 
@@ -110,84 +102,173 @@ function orderNow() {
         return;
     }
 
-    let cartItems = JSON.stringify(cart);
-    let totalPrice = document.querySelector("#totalPrice").innerText;
-    let paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-
-    if (paymentMethod === "online") {
-        window.location.href = `payment_gateway.php?amount=${totalPrice}&username=${username}`;
-        return;
-    }
-    fetch("order.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `cartItems=${encodeURIComponent(cartItems)}&totalPrice=${totalPrice}&username=${username}&paymentMethod=${paymentMethod}`
-    })
-        .then(response => response.text())
-        .then(data => {
-            if (data === "success") {
-                alert("Order Placed Successfully ✅");
-                cart = [];
-                localStorage.removeItem("cart");
-                updateCart();
-                location.reload();
-            } else {
-                alert("Order Failed 😔");
-            }
-        });
+    openModal("paymentModal");
 }
 
-// ✅ Cart Sync on Every Page
+// ✅ Continue to Customer Details
+function continueToCustomerDetails() {
+    let selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+
+    if (!selectedPayment) {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    localStorage.setItem("selectedPayment", selectedPayment.value);
+    closeModal("paymentModal");
+    openModal("customerDetailsModal");
+}
+
+// ✅ Continue to Final Step
+function continueToFinal() {
+    let name = document.getElementById("customerName").value.trim();
+    let phone = document.getElementById("customerPhone").value.trim();
+    let address = document.getElementById("customerAddress").value.trim();
+
+    if (!name || !phone || !address) {
+        alert("Please fill in all delivery details.");
+        return;
+    }
+
+    localStorage.setItem("customerDetails", JSON.stringify({ name, phone, address }));
+    closeModal("customerDetailsModal");
+    openModal("finalStepModal");
+
+    // Update final step modal with user details
+    document.getElementById("selectedPaymentText").innerText = localStorage.getItem("selectedPayment");
+    document.getElementById("finalCustomerDetails").innerHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Address:</strong> ${address}</p>
+    `;
+
+    let cartSummary = document.getElementById("cartSummary");
+    cartSummary.innerHTML = cart.map(item => `<p>${item.name} - ₹${item.price} x ${item.quantity}</p>`).join("");
+    document.getElementById("finalTotalPrice").innerText = document.getElementById("totalPrice").innerText;
+}
+
+// ✅ Final Order Submission
+function finalOrder() {
+    let username = localStorage.getItem("username");
+    let totalPrice = document.getElementById("finalTotalPrice").innerText.replace("₹", "").trim();
+    let paymentMethod = localStorage.getItem("selectedPayment");
+    let customerDetails = JSON.parse(localStorage.getItem("customerDetails"));
+    let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (!paymentMethod || !customerDetails || cartData.length === 0) {
+        alert("Missing details. Please try again.");
+        return;
+    }
+
+    let orderData = new FormData();
+    orderData.append("username", username);
+    orderData.append("totalPrice", totalPrice);
+    orderData.append("paymentMethod", paymentMethod);
+    orderData.append("customerName", customerDetails.name);
+    orderData.append("customerPhone", customerDetails.phone);
+    orderData.append("customerAddress", customerDetails.address);
+    orderData.append("cartItems", JSON.stringify(cartData));
+
+    fetch("order.php", { method: "POST", body: orderData })
+    .then(response => response.text())
+    .then(data => {
+        if (data.trim() === "success") {
+            alert("Order Placed Successfully ✅");
+            localStorage.removeItem("cart");
+            localStorage.removeItem("selectedPayment");
+            localStorage.removeItem("customerDetails");
+            updateCart();
+            window.location.href = "order-confirmation.php";
+        } else {
+            alert("Order Failed 😔 " + data);
+        }
+    });
+}
+
+// ✅ Sync Cart on Page Load
 document.addEventListener("DOMContentLoaded", () => {
     let savedCart = localStorage.getItem("cart");
     if (savedCart) {
         cart = JSON.parse(savedCart);
         updateCart();
-
     }
 });
-function showOrders() {
-    fetch("getorders.php?username=" + username)
-      .then(response => response.json())
-      .then(data => {
-        let orderHTML = "<h3>Your Orders 📦</h3>";
-        if (data.length > 0) {
-          data.forEach(order => {
-            orderHTML += `
-              <p>${order.product_name} - ₹${order.price} x ${order.quantity}</p>
-            `;
-          });
-        } else {
-          orderHTML += `<p>No Orders Found 😢</p>`;
-        }
-        Swal.fire({
-          title: "Your Orders",
-          html: orderHTML,
-          icon: "info",
-        });
-      });
-  }
-  function selectPayment() {
-    let selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
-    let paymentOptions = document.getElementById("paymentOptions");
-    let errorMessage = document.getElementById("errorMessage");
-    let paymentMessage = document.getElementById("paymentMessage");
 
-    if (selectedMethod) {
-        let selectedLabel = selectedMethod.closest(".payment-option"); // Get the label element containing the input and text
+// ✅ Event Listeners for Modals
+document.getElementById("continueToPayment").addEventListener("click", function() {
+    openModal("paymentModal");
+});
 
-        // Clear all payment options
-        paymentOptions.innerHTML = "";
+document.getElementById("continueToCustomerDetails").addEventListener("click", function() {
+    openModal("customerDetailsModal");
+});
 
-        // Append only the selected payment method
-        paymentOptions.appendChild(selectedLabel);
-
-        // Update the message
-        paymentMessage.innerHTML = `You selected: <strong>${selectedLabel.textContent.trim()}</strong>`;
-        errorMessage.style.display = "none"; // Hide error message
-    } else {
-        errorMessage.style.display = "block"; // Show error message if no selection
-    }
+document.getElementById("continueToFinalStep").addEventListener("click", function() {
+    openModal("finalStepModal");
+});
+// ✅ Open Cart Modal
+function showCart() {
+    const cartModal = document.getElementById("cartModal");
+    cartModal.style.display = "flex";  // Use "flex" to center the modal
 }
+
+// ✅ Close Cart Modal
+function closeCart() {
+    const cartModal = document.getElementById("cartModal");
+    cartModal.style.display = "none";
+}
+
+// ✅ Automatically Sync Cart on Page Load
+document.addEventListener("DOMContentLoaded", () => {
+    let savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+    }
+});
+
+function addToCartFromWishlist(button) {
+    let productName = button.getAttribute("data-name");
+    let productPrice = button.getAttribute("data-price");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the product is already in the cart
+    let existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+    }
+
+    // Save to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Debugging: Check if cart updates correctly
+    console.log("Cart after adding:", cart);
+
+    alert("Product added to cart from wishlist!");
+    updateCartUI();  // Ensure UI updates
+}
+document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    button.addEventListener("click", function () {
+        let productName = this.getAttribute("data-name");
+        let productPrice = this.getAttribute("data-price");
+
+        fetch("wishlist.php", {
+            method: "POST",
+            body: new URLSearchParams({
+                "add_to_cart": true,
+                "name": productName,
+                "price": productPrice
+            }),
+            headers: { "Content-Type": "application/x-www-form-urlencoded" }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                updateCartUI();
+            }
+        });
+    });
+});

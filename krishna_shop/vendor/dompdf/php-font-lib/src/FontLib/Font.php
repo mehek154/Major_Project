@@ -59,7 +59,7 @@ class Font {
     }
 
     if ($class) {
-      $class = "FontLib\\$class";
+      $class = "FontLib\₹class";
 
       /** @var TrueType\File $obj */
       $obj = new $class;

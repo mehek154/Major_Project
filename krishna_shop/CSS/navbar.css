@@ -304,6 +304,7 @@ button:hover {
 .orderNow{
     margin-left: 40%;
 }
+
 .orderNow:hover{
     background-color: rgb(2, 116, 145);
 }
@@ -342,4 +343,286 @@ button:hover {
 }
 .cart-item{
     border-bottom: 1px solid gray;
+}
+/* Dropdown container */
+.dropdown2 {
+    position: relative;
+    text-decoration: none;
+  }
+  
+  /* Dropdown menu - hidden by default */
+  .dropdown-product {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .navbar li{
+    list-style-type: none;
+    padding: 0%;
+    margin: 0%;
+  }  
+  /* Dropdown links */
+  .dropdown-product a {
+    color: black;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-product a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show dropdown on hover */
+  .dropdown2:hover   .dropdown-product {
+    display: block;
+  }
+  /* Generic Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index:777;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Modal Content */
+.modal-content {
+    padding: 15px;
+}
+
+/* Close Button */
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal .close:hover {
+    color: red;
+}
+
+/* === Payment Modal Styling === */
+#paymentModal label {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#paymentModal label:hover {
+    background: #f8f8f8;
+}
+
+#paymentModal input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Payment Icons */
+#paymentModal label img {
+    height: 25px;
+    margin-left: auto;
+}
+
+/* === Customer Details Modal === */
+.customer-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+    margin: auto;
+}
+
+.customer-form h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.customer-form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.customer-form input,
+.customer-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.customer-form button {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.customer-form button:hover {
+    background: #218838;
+}
+
+/* === Final Confirmation Modal === */
+#finalStepModal {
+    text-align: center;
+    padding: 20px;
+}
+
+#finalStepModal h2 {
+    margin-bottom: 15px;
+}
+
+#finalCustomerDetails, #cartSummary {
+    background: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+#finalTotalPrice {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#finalStepModal button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#finalStepModal button:hover {
+    background: #0056b3;
+}
+
+/* Show Modal */
+.show-modal {
+    display: block;
+}
+
+.wishlist-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.wishlistStyle{
+    margin: 2% 5% 2% 5%;
+}
+.wishlistBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.wishlist-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-5px);
+}
+
+.wishlist-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.wishlist-item h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.wishlist-item p {
+    font-size: 16px;
+    color: #777;
+}
+
+.wishlist-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.wishlist-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.add-to-cart {
+    background: #28a745;
+    color: white;
+}
+
+.add-to-cart:hover {
+    background: #218838;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+#wishlistRemove{
+    background: none;
+}
+.go-back-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.go-back-btn:hover {
+    background: #0056b3;
 }

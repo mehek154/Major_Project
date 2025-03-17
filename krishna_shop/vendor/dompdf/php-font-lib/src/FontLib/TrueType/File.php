@@ -398,7 +398,7 @@ class File extends BinaryStream {
 
 
     $type = $this->getFontType();
-    $class = "FontLib\\$type\\TableDirectoryEntry";
+    $class = "FontLib\₹type\\TableDirectoryEntry";
 
     for ($i = 0; $i < $this->header->data["numTables"]; $i++) {
       /** @var TableDirectoryEntry $entry */
@@ -419,7 +419,7 @@ class File extends BinaryStream {
     if (!self::$raw) {
       $name_canon = preg_replace("/[^a-z0-9]/", "", strtolower($tag));
 
-      $class = "FontLib\\Table\\Type\\$name_canon";
+      $class = "FontLib\\Table\\Type\₹name_canon";
 
       if (!isset($this->directory[$tag]) || !@class_exists($class)) {
         return;

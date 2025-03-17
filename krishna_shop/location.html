@@ -25,9 +25,16 @@
       <nav class="navbar">
         <a href="Index.html">Home</a>
         <a href="Contact.html">Contact Us</a>
-        <a href="#Products">Products</a>
+        <li class="dropdown2">
+          <a href="#" class="dropbtn">Products</a>
+          <div class="dropdown-product">
+            <a href="hardware.html">Hardware</a>
+            <a href="sanitary.html">Sanitary</a>
+            <a href="flooring.html">Tiles</a>
+            <a href="plywood.html">Plywood</a>
+          </div>
+        </li>
         <a href="About.html">About Us</a>
-        <a href="Index.html?scroll=reviewsMain">Reviews</a>
         <a href="location.html"
           ><i class="ri-map-pin-line"></i></i>Showroom</a
         >
@@ -71,6 +78,33 @@
           <div id="cartItems"></div>
           <h3>Total Price: $<span id="totalPrice">0</span></h3>
           <button onclick="orderNow()">Order Now</button>
+          <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <h2>Select Payment Method</h2>
+                <label><input type="radio" name="paymentMethod" value="visa"> <img src="Images/visa .png">  Visa</label><br>
+                <label><input type="radio" name="paymentMethod" value="mastercard"> <img src="Images/card.png">  Mastercard</label><br>
+                <label><input type="radio" name="paymentMethod" value="paypal"> <img src="Images/paypal .png">  PayPal</label><br>
+                <label><input type="radio" name="paymentMethod" value="stripe"> <img src="Images/stripe .png">  Stripe</label><br>
+                <label><input type="radio" name="paymentMethod" value="gpay"> <img src="Images/google-pay.png">  Google Pay</label><br>
+                <label><input type="radio" name="paymentMethod" value="paytm"> <img src="Images/paytm.png" style="height: 30px;">  Paytm</label><br>
+                <label><input type="radio" name="paymentMethod" value="COD"> <img src="Images/rupee.png">  Cash on Delivery</label><br>
+                <button onclick="continueToFinal()">Continue</button>
+                <button onclick="document.getElementById('paymentModal').style.display='none'">Cancel</button>
+            </div>
+        </div>
+        
+        <!-- 🔹 Final Order Confirmation Modal -->
+        <div id="finalStepModal" class="modal">
+            <div class="modal-content">
+                <h2>Order Summary</h2>
+                <div id="cartSummary"></div>
+                <p><strong>Total Price:</strong> ₹<span id="finalTotalPrice"></span></p>
+                <p><strong>Payment Method:</strong> <span id="selectedPaymentText"></span></p>
+                <button onclick="finalOrder()">Place Order</button>
+                <button onclick="document.getElementById('finalStepModal').style.display='none'">Cancel</button>
+            </div>
+        </div>
+        
       </div>
   </div>
     <div class="location">

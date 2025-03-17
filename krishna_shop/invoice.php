@@ -5,26 +5,35 @@ use Dompdf\Options;
 include 'db.php';
 session_start();
 
+// Ensure User is Logged In
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
 
 $username = $_SESSION['username'];
-$order_id = $_GET['order_id'];
+$order_id = $_GET['order_id'] ?? '';
 
-// Fetch Order Details
-$query = "SELECT * FROM orders WHERE user_id='$username'";
+// Fetch Customer & Order Details
+$query = "SELECT customer_name, customer_phone, customer_address, product_name, price, quantity, total_price, payment_method, payment_status 
+          FROM orders 
+          WHERE user_id='$username' AND id='$order_id'";
+
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) == 0) {
     die("No orders found!");
 }
 
+// Fetch First Order Row for Customer Details
+$order = mysqli_fetch_assoc($result);
+
 // Start HTML for PDF
 $html = '<h2 style="text-align:center;">Invoice Bill</h2>';
-$html = '<h3 style="text-align:center;color:rgb(0, 124, 128);font-family: zapfino;">KRISHNA Hardware Ply & Sanitary Furniture Center</h3>';
-$html .= '<p><strong>Customer Name:</strong> ' . $username . '</p>';
+$html .= '<h3 style="text-align:center;color:rgb(0, 124, 128);font-family: zapfino;">KRISHNA Hardware Ply & Sanitary Furniture Center</h3>';
+$html .= '<p><strong>Customer Name:</strong> ' . $order['customer_name'] . '</p>';
+$html .= '<p><strong>Phone Number:</strong> ' . $order['customer_phone'] . '</p>';
+$html .= '<p><strong>Delivery Address:</strong> ' . $order['customer_address'] . '</p>';
 $html .= '<p><strong>Date:</strong> ' . date("d-m-Y") . '</p>';
 $html .= '<hr>';
 $html .= '<table border="1" width="100%" cellpadding="10" cellspacing="0">';
@@ -37,9 +46,9 @@ $html .= '<tr>
             <th>Payment Status</th>
         </tr>';
 
+// Reset result pointer and loop through all orders
+mysqli_data_seek($result, 0);
 $total = 0;
-
-// Fetch Order Data
 while ($row = mysqli_fetch_assoc($result)) {
     $productTotal = $row['price'] * $row['quantity'];
     $total += $productTotal;

@@ -196,3 +196,4 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.username').innerText = 'Guest';
   }
 });
+
